@@ -1,14 +1,15 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import Navbar from './navigation/Navbar';
-import PublicMap from './screens/PublicMap';
 import Router from './navigation/Router';
+import Footer from './navigation/Footer';
 
 function App() {
   return (
     <div className='App'>
       <Navbar />
       <Router />
+      <Footer />
       {/* <header className='App-header'>
         <img src={logo} className='App-logo' alt='logo' />
         <p>
