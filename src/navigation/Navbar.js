@@ -5,7 +5,7 @@ function Navbar() {
     <nav className='navbar navbar-expand-lg navbar-light bg-light'>
       <div className='container'>
         <a className='navbar-brand' href='/'>
-          Navbar
+          1vyou
         </a>
         <button
           className='navbar-toggler'
@@ -29,7 +29,7 @@ function Navbar() {
               </Link>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/privatemap'>
+              <Link className='nav-link' to={`/private-map`}>
                 Private map
               </Link>
             </li>
