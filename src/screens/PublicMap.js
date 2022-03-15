@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function PublicMap() {
   const [data, setData] = useState([]);
@@ -49,6 +50,7 @@ function PublicMap() {
         .then((response) => {
           // handle success
           setData(response.data);
+          //   console.log(response);
         })
         .catch((err) => {
           console.log(err);
@@ -85,6 +87,13 @@ function PublicMap() {
                 <div className='card-body'>
                   <h5 className='card-title'>{industry.title}</h5>
                   <p className='card-text'>{industry.description}</p>
+                  <Link
+                    className='btn btn-primary'
+                    to={`/industries/${industry.slug}`}
+                    role='button'
+                  >
+                    Learn more
+                  </Link>
                 </div>
               </div>
             </div>
