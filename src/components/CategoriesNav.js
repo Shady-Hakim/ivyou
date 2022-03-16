@@ -1,8 +1,10 @@
-import React from 'react';
-
 function CategoriesNav({ categories, categoryButtonHandler, activeId }) {
   return (
-    <div className='btn-group' role='group' aria-label='Basic outlined example'>
+    <div
+      className='btn-group flex-wrap'
+      role='group'
+      aria-label='Basic outlined example'
+    >
       {categories &&
         categories.map((category) => (
           <button
