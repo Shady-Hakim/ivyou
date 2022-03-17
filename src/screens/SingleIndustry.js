@@ -14,11 +14,12 @@ function SingleIndustry() {
   const params = useParams();
   const { industrySlug } = params;
   const [data, setData] = useState([]);
-  const { title, categories } = data;
   const [activeId, setActiveId] = useState();
   const [statuses, setStatuses] = useState([]);
   const uri = process.env.REACT_APP_BASE_URL;
-
+  const categories =
+    data && data.categories && data.categories.map((category) => category);
+  console.log(data);
   const geoUrl =
     'https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json';
 
@@ -72,7 +73,7 @@ function SingleIndustry() {
   );
   return (
     <div className='container mt-4'>
-      <h2 className='text-start'>{title} public map</h2>
+      <h2 className='text-start'>{data.title} public map</h2>
       <div className='row row-cols-1 row-cols-md-3 g-4'>
         <div className='col col-md-8 col-sm-8 grid-item position-relative'>
           <ComposableMap projection='geoEqualEarth'>
