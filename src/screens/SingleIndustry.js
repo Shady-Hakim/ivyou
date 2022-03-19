@@ -9,47 +9,26 @@ import {
 } from 'react-simple-maps';
 import CategoriesNav from '../components/CategoriesNav';
 import Statuses from '../components/Statuses';
+import SingleIndustrySkeleton from '../components/SingleIndustrySkeleton';
 
 function SingleIndustry() {
   const params = useParams();
   const { industrySlug } = params;
   const [data, setData] = useState([]);
   const { title, categories } = data;
-  const [activeId, setActiveId] = useState();
+  const [activeCategory, setActiveCategory] = useState();
   const [statuses, setStatuses] = useState([]);
+  const [loading, setLoading] = useState(true);
   const uri = process.env.REACT_APP_BASE_URL;
-
   const geoUrl =
     'https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json';
 
-  // const statuses1 = [
-  //   {
-  //     id: 1,
-  //     title: 'legal',
-  //     slug: '',
-  //     color: 'red',
-  //     countries: ['EGY', 'BRA', 'USA'],
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'illegal',
-  //     slug: '',
-  //     color: 'green',
-  //     countries: ['PAK', 'IND', 'SAU'],
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'test',
-  //     slug: '',
-  //     color: 'blue',
-  //     countries: ['AGO', 'COD', 'CAF'],
-  //   },
-  // ];
-
-  const categoryButtonHandler = (id) => {
-    const categoryById = categories.find((category) => category.id === id);
+  const categoryButtonHandler = (selectedCategory) => {
+    const categoryById = categories.find(
+      (category) => category.id === selectedCategory.id
+    );
     setStatuses(categoryById.statuses);
-    setActiveId(id);
+    setActiveCategory(selectedCategory);
   };
   useEffect(
     () =>
@@ -63,6 +42,7 @@ function SingleIndustry() {
         .then((response) => {
           // handle success
           setData(response.data);
+          setLoading(false);
           // console.log(response);
         })
         .catch((err) => {
@@ -70,11 +50,19 @@ function SingleIndustry() {
         }),
     [uri, industrySlug]
   );
+  if (loading) {
+    return <SingleIndustrySkeleton />;
+  }
   return (
     <div className='container mt-4'>
       <h2 className='text-start'>{title} public map</h2>
       <div className='row row-cols-1 row-cols-md-3 g-4'>
         <div className='col col-md-8 col-sm-8 grid-item position-relative'>
+          <CategoriesNav
+            categories={categories}
+            categoryButtonHandler={categoryButtonHandler}
+            activeCategory={activeCategory}
+          />
           <ComposableMap projection='geoEqualEarth'>
             <ZoomableGroup zoom={1}>
               <Geographies geography={geoUrl} stroke='#FFF' strokeWidth={0.5}>
@@ -100,15 +88,11 @@ function SingleIndustry() {
             </ZoomableGroup>
           </ComposableMap>
           <Statuses statuses={statuses} />
-          <CategoriesNav
-            categories={categories}
-            categoryButtonHandler={categoryButtonHandler}
-            activeId={activeId}
-          />
         </div>
         <div className='col col-md-4 col-sm-4 d-grid'>
-          <div className='mb-3 grid-item'>Video</div>
-          <div className='grid-item p-2'>News</div>
+          <div className='mb-3 grid-item p-2'>Video</div>
+          <div className='mb-3 grid-item p-2'>News</div>
+          <div className='grid-item p-2'>Sources</div>
         </div>
       </div>
     </div>

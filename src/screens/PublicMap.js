@@ -1,37 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import HomeSceleton from '../components/HomeSceleton';
 
 function PublicMap() {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const uri = process.env.REACT_APP_BASE_URL;
-  //   const data = [
-  //     {
-  //       id: 1,
-  //       title: 'crypto',
-  //       image: 'https://via.placeholder.com/350x150',
-  //     },
-  //     {
-  //       id: 2,
-  //       title: 'crypto1',
-  //       image: 'https://via.placeholder.com/350x150',
-  //     },
-  //     {
-  //       id: 3,
-  //       title: 'crypto2',
-  //       image: 'https://via.placeholder.com/350x150',
-  //     },
-  //     {
-  //       id: 4,
-  //       title: 'crypto3',
-  //       image: 'https://via.placeholder.com/350x150',
-  //     },
-  //     {
-  //       id: 5,
-  //       title: 'crypto4',
-  //       image: 'https://via.placeholder.com/350x150',
-  //     },
-  //   ];
+
   useEffect(
     () =>
       axios({
@@ -50,6 +26,7 @@ function PublicMap() {
         .then((response) => {
           // handle success
           setData(response.data);
+          setLoading(false);
           //   console.log(response);
         })
         .catch((err) => {
@@ -57,12 +34,12 @@ function PublicMap() {
         }),
     [uri]
   );
+  if (loading) {
+    return <HomeSceleton />;
+  }
   return (
     <div className='container-fluid'>
-      <section
-        id='hero'
-        className='d-flex justify-content-center align-items-center'
-      >
+      <section className='hero d-flex justify-content-center align-items-center'>
         <div className='overlay'>
           <div
             className='container position-relative aos-init aos-animate'
