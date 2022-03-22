@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import HomeSceleton from '../components/HomeSceleton';
@@ -9,30 +9,25 @@ function PublicMap() {
   const uri = process.env.REACT_APP_BASE_URL;
 
   useEffect(
-    () =>
-      axios({
-        method: 'get',
-        url: `${uri}/industry`,
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Credentials': 'true',
-          'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-          'Access-Control-Allow-Headers':
+    () => axios({
+      method: 'get',
+      url: `${uri}/industry`,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+        'Access-Control-Allow-Headers':
             'Origin, X-Requested-With, Content-Type, Accept',
-        },
-      })
-        .then((response) => {
-          // handle success
-          setData(response.data);
-          setLoading(false);
-          //   console.log(response);
-        })
-        .catch((err) => {
-          console.log(err);
-        }),
-    [uri]
+      },
+    }).then((response) => {
+      // handle success
+      setData(response.data);
+      setLoading(false);
+      //   console.log(response);
+    }),
+    [uri],
   );
   if (loading) {
     return <HomeSceleton />;
@@ -52,8 +47,8 @@ function PublicMap() {
         </div>
       </section>
       <div className='row row-cols-1 row-cols-md-3 g-4'>
-        {data &&
-          data.map((industry) => (
+        {data
+          && data.map((industry) => (
             <div key={industry.id} className='col'>
               <div className='card'>
                 <img

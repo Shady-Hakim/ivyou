@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import React, { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
@@ -16,7 +16,7 @@ function Navbar() {
           aria-expanded='false'
           aria-label='Toggle navigation'
         >
-          <span className='navbar-toggler-icon'></span>
+          <span className='navbar-toggler-icon' />
         </button>
         <div
           className='collapse navbar-collapse float-end'
@@ -29,7 +29,7 @@ function Navbar() {
               </Link>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to={`/private-map`}>
+              <Link className='nav-link' to='/private-map'>
                 Private map
               </Link>
             </li>

@@ -1,3 +1,6 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
 function CategoriesNav({ categories, categoryButtonHandler, activeCategory }) {
   return (
     <div className='btn-group'>
@@ -10,10 +13,11 @@ function CategoriesNav({ categories, categoryButtonHandler, activeCategory }) {
         {(activeCategory && activeCategory.name) || 'Select category'}
       </button>
       <ul className='dropdown-menu'>
-        {categories &&
-          categories.map((category) => (
+        {categories
+          && categories.map((category) => (
             <li key={category.id}>
               <button
+                type='button'
                 className={`dropdown-item ${
                   activeCategory && activeCategory.id === category.id
                     ? 'btn-primary active'
@@ -28,26 +32,22 @@ function CategoriesNav({ categories, categoryButtonHandler, activeCategory }) {
           ))}
       </ul>
     </div>
-    // <div
-    //   className='btn-group flex-wrap'
-    //   role='group'
-    //   aria-label='Basic outlined example'
-    // >
-    //   {categories &&
-    //     categories.map((category) => (
-    //       <button
-    //         key={category.id}
-    //         type='button'
-    //         className={`btn ${
-    //           activeId === category.id ? 'btn-primary' : 'btn-outline-primary '
-    //         }`}
-    //         onClick={() => categoryButtonHandler(category.id)}
-    //       >
-    //         {category.name}
-    //       </button>
-    //     ))}
-    // </div>
   );
 }
-
+CategoriesNav.defaultProps = {
+  activeCategory: undefined,
+};
+CategoriesNav.propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+  categoryButtonHandler: PropTypes.func.isRequired,
+  activeCategory: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  }),
+};
 export default CategoriesNav;

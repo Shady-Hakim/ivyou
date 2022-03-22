@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import React, { Routes, Route } from 'react-router-dom';
 import AboutUs from '../screens/AboutUs';
 import Articles from '../screens/Articles';
 import PrivateMap from '../screens/PrivateMap';

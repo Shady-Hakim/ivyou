@@ -1,3 +1,6 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
 function Statuses({ statuses }) {
   return (
     <ul className='text-start position-absolute b-1 statuses fw-bold'>
@@ -10,4 +13,13 @@ function Statuses({ statuses }) {
   );
 }
 
+Statuses.propTypes = {
+  statuses: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      color: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 export default Statuses;
