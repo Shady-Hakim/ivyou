@@ -33,20 +33,8 @@ function PublicMap() {
     return <HomeSceleton />;
   }
   return (
-    <div className='container-fluid'>
-      <section className='hero d-flex justify-content-center align-items-center'>
-        <div className='overlay'>
-          <div
-            className='container position-relative aos-init aos-animate'
-            data-aos='zoom-in'
-            data-aos-delay='100'
-          >
-            <h1 className='text-white'>1vyou</h1>
-            <h2 className='text-white'>Public View</h2>
-          </div>
-        </div>
-      </section>
-      <div className='row row-cols-1 row-cols-md-3 g-4'>
+    <div className='container pt-5'>
+      <div className='row row-cols-md-3'>
         {data
           && data.map((industry) => (
             <div key={industry.id} className='col'>
@@ -60,7 +48,7 @@ function PublicMap() {
                   <h5 className='card-title'>{industry.title}</h5>
                   <p className='card-text'>{industry.description}</p>
                   <Link
-                    className='btn btn-primary'
+                    className='btn btn-secondary'
                     to={`/industries/${industry.slug}`}
                     role='button'
                   >
@@ -70,6 +58,12 @@ function PublicMap() {
               </div>
             </div>
           ))}
+        <a
+          href='/industries/add-industry'
+          className='border border-light border-1 align-self-center p-5'
+        >
+          <i className='bi bi-plus plus-icon text-white' />
+        </a>
       </div>
     </div>
   );

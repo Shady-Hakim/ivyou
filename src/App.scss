@@ -1,14 +1,19 @@
 .App {
   text-align: center;
 }
-
-.hero {
+.f-w {
   width: 100%;
-  height: 80vh;
+  padding-left: 0;
+  padding-right: 0;
+}
+.hero-bg {
   background: url(https://www.mapitstudio.com/wp-content/uploads/2021/04/didelis-medinis-zemlapis-sieninis-pasaulio-zemelapis-su-saliu-pavadinimais-ir-smeigtukais-azuolas-map-it-studio.jpg)
     top center;
   background-size: cover;
-  margin-bottom: 50px;
+}
+.hero {
+  width: 100%;
+  height: 80vh;
 }
 .hero-skeleton {
   width: 100%;
@@ -35,7 +40,7 @@
   height: 100%;
 }
 .news-outside {
-  height: 20rem;
+  height: 30rem;
 }
 .news-outside ::-webkit-scrollbar {
   -webkit-appearance: none;
@@ -46,4 +51,8 @@
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.plus-icon {
+  font-size: 100px;
 }

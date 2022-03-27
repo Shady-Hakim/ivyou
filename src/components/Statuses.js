@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function Statuses({ statuses }) {
   return (
-    <ul className='text-start position-absolute b-1 statuses fw-bold'>
+    <ul className='text-start b-0 statuses fw-bold'>
       {statuses.map((status) => (
         <li key={status.id} style={{ color: status.color }}>
           {status.name}

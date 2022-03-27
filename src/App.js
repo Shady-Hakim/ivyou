@@ -7,7 +7,7 @@ import Footer from './navigation/Footer';
 
 function App() {
   return (
-    <div className='App'>
+    <div className='App bg-secondary'>
       <Navbar />
       <Router />
       <Footer />

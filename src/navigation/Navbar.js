@@ -1,8 +1,9 @@
-import React, { Link } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+    <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
       <div className='container'>
         <a className='navbar-brand' href='/'>
           1vyou
@@ -18,30 +19,32 @@ function Navbar() {
         >
           <span className='navbar-toggler-icon' />
         </button>
-        <div
-          className='collapse navbar-collapse float-end'
-          id='navbarSupportedContent'
-        >
+        <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
             <li className='nav-item'>
-              <Link className='nav-link' to='/'>
-                Public map
-              </Link>
+              <NavLink className='nav-link' to='/'>
+                Home
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/private-map'>
-                Private map
-              </Link>
+              <NavLink className='nav-link' to='/industries'>
+                1VYou Public
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/articles'>
-                Articles
-              </Link>
+              <NavLink className='nav-link' to='/private-map'>
+                1vyou Private
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <Link className='nav-link' to='/about-us'>
+              <NavLink className='nav-link' to='/articles'>
+                Matching
+              </NavLink>
+            </li>
+            <li className='nav-item'>
+              <NavLink className='nav-link' to='/about-us'>
                 About Us
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
