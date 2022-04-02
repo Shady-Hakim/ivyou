@@ -19,7 +19,10 @@ function Navbar() {
         >
           <span className='navbar-toggler-icon' />
         </button>
-        <div className='collapse navbar-collapse' id='navbarSupportedContent'>
+        <div
+          className='collapse navbar-collapse navbar-collapse-b'
+          id='navbarSupportedContent'
+        >
           <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
             <li className='nav-item'>
               <NavLink className='nav-link' to='/'>
@@ -28,16 +31,16 @@ function Navbar() {
             </li>
             <li className='nav-item'>
               <NavLink className='nav-link' to='/industries'>
-                1VYou Public
+                Public Maps
               </NavLink>
             </li>
             <li className='nav-item'>
               <NavLink className='nav-link' to='/private-map'>
-                1vyou Private
+                Private Maps
               </NavLink>
             </li>
             <li className='nav-item'>
-              <NavLink className='nav-link' to='/articles'>
+              <NavLink className='nav-link' to='/matching'>
                 Matching
               </NavLink>
             </li>

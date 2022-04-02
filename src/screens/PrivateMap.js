@@ -3,7 +3,7 @@ import React from 'react';
 function PrivateMap() {
   return (
     <div className='container-fluid'>
-      <section className='hero d-flex justify-content-center align-items-center'>
+      <section className='hero d-flex justify-content-center align-items-center mt-5'>
         <div className='container position-relative'>
           <div className='row text-white border-top border-bottom border-1 border-light p-3'>
             <h1 className='col-8'>Private organization data</h1>
@@ -14,17 +14,15 @@ function PrivateMap() {
               Learn more
             </button>
           </div>
-          <p className='text-white mt-5'>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry&apos;s standard dummy
-            text ever since the 1500s, when an unknown printer took a galley of
-            type and scrambled it to make a type specimen book. It has survived
-            not only five centuries, but also the leap into electronic
-            typesetting, remaining essentially unchanged. It was popularised in
-            the 1960s with the release of Letraset sheets containing Lorem Ipsum
-            passages, and more recently with desktop publishing software like
-            Aldus PageMaker including versions of Lorem Ipsum.
-          </p>
+          <div className='text-start text-white'>
+            <h3 className='mt-5 mb-3'>VIEW PUBLIC SHARED DATA</h3>
+            <p>
+              This tab all is required is to import the current map of worldwide
+              crypto mapping, and then when we have more maps we will need to
+              sort it out more by hyperlinks or topic. This tab should have a
+              view and the updates of that view on one space.
+            </p>
+          </div>
           <button
             type='button'
             className='btn btn-success border border-1 border-light'

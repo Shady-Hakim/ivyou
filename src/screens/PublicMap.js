@@ -33,7 +33,7 @@ function PublicMap() {
     return <HomeSceleton />;
   }
   return (
-    <div className='container pt-5'>
+    <div className='public-map container mt-5'>
       <div className='row row-cols-md-3'>
         {data
           && data.map((industry) => (
@@ -52,7 +52,7 @@ function PublicMap() {
                     to={`/industries/${industry.slug}`}
                     role='button'
                   >
-                    Learn more
+                    Explore
                   </Link>
                 </div>
               </div>

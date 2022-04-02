@@ -1,7 +1,8 @@
 import React, { Routes, Route } from 'react-router-dom';
 import AboutUs from '../screens/AboutUs';
 import AddIndustry from '../screens/AddIndustry';
-import Articles from '../screens/Articles';
+import AddSource from '../screens/AddSource';
+import MatchingScreen from '../screens/Matching';
 import HomeScreen from '../screens/Home';
 import PrivateMap from '../screens/PrivateMap';
 import PublicMap from '../screens/PublicMap';
@@ -14,8 +15,12 @@ function Router() {
       <Route path='industries' element={<PublicMap />} />
       <Route path='industries/add-industry' element={<AddIndustry />} />
       <Route path='industries/:industrySlug' element={<SingleIndustry />} />
+      <Route
+        path='industries/:industrySlug/add-source'
+        element={<AddSource />}
+      />
       <Route path='private-map' element={<PrivateMap />} />
-      <Route path='articles' element={<Articles />} />
+      <Route path='matching' element={<MatchingScreen />} />
       <Route path='about-us' element={<AboutUs />} />
       <Route path='*' element={<AboutUs />} />
     </Routes>

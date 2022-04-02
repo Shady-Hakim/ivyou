@@ -102,11 +102,19 @@ function SingleIndustry() {
     return <SingleIndustrySkeleton />;
   }
   return (
-    <div className='container mt-4'>
-      <h2 className='text-start'>
-        {title}
-        public map
-      </h2>
+    <div className='single-industry container mt-4'>
+      <div className='row'>
+        <h2 className='col text-start align-self-center'>
+          {title}
+          public map
+        </h2>
+        <a
+          href={`/industries/${industrySlug}/add-source`}
+          className='col-1 border border-light border-1 m-3 align-self-center'
+        >
+          <i className='bi bi-plus plus-icon text-white' />
+        </a>
+      </div>
       <div className='row row-cols-1 row-cols-md-3 g-4'>
         <div className='col col-md-8 col-sm-8'>
           <div className='grid-item'>
@@ -142,7 +150,21 @@ function SingleIndustry() {
             <Statuses statuses={statuses} />
           </div>
 
-          <div className='grid-item mt-4 p-2'>Source</div>
+          <div className='grid-item mt-4 p-2'>
+            <h3>Source</h3>
+            {activeCategory ? (
+              <div className='text-start mt-1'>
+                <a
+                  target='_blank'
+                  href={activeCategory.source}
+                  rel='noreferrer'
+                >
+                  {activeCategory.source}
+                </a>
+                <p>Updates every 2 weeks</p>
+              </div>
+            ) : null}
+          </div>
         </div>
         <div className='col col-md-4 col-sm-4 d-grid'>
           <div className='mb-3 grid-item p-2'>

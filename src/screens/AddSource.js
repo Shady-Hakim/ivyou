@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 
-function AddIndustry() {
+function AddSource() {
   return (
     <div className='container text-start p-5'>
       <div className='col-4 offset-4'>
@@ -18,28 +18,6 @@ function AddIndustry() {
           }}
         >
           <Form>
-            <div className='mb-3'>
-              <label htmlFor='mapTitle' className='form-label w-100'>
-                Map Title
-                <input name='mapTitle' type='text' className='form-control' />
-              </label>
-            </div>
-
-            <div className='mb-3'>
-              <label htmlFor='keys' className='form-label w-100'>
-                Map Region
-                <select
-                  name='mapRegion'
-                  id='mapRegion'
-                  className='form-control'
-                >
-                  <option value='worldwide'>Worldwide</option>
-                  <option value='ragional'>Ragional</option>
-                  <option value='country'>Country</option>
-                </select>
-              </label>
-            </div>
-
             <div className='mb-3'>
               <label htmlFor='source' className='form-label w-100'>
                 Source
@@ -62,21 +40,6 @@ function AddIndustry() {
               <label htmlFor='keys' className='form-label w-100'>
                 Keys
                 <input name='keys' type='text' className='form-control' />
-              </label>
-            </div>
-
-            <div className='mb-3'>
-              <label htmlFor='keys' className='form-label w-100'>
-                Search Engine
-                <select
-                  name='searchEngine'
-                  id='searchEngine'
-                  className='form-control'
-                >
-                  <option value='google'>Google</option>
-                  <option value='bing'>Bing</option>
-                  <option value='duckduckgo'>Duckduckgo</option>
-                </select>
               </label>
             </div>
 
@@ -131,4 +94,4 @@ function AddIndustry() {
   );
 }
 
-export default AddIndustry;
+export default AddSource;
