@@ -4,15 +4,18 @@ import PropTypes from 'prop-types';
 function CategoriesNav({ categories, categoryButtonHandler, activeCategory }) {
   return (
     <div className='btn-group'>
-      <div
+      <a
         type='button'
+        href='/'
+        role='button'
+        id='dropdownMenuLink'
+        aria-expanded='false'
         className='btn btn-primary dropdown-toggle'
         data-bs-toggle='dropdown'
-        aria-expanded='false'
       >
         {(activeCategory && activeCategory.name) || 'Select category'}
-      </div>
-      <ul className='dropdown-menu'>
+      </a>
+      <ul className='dropdown-menu' aria-labelledby='dropdownMenuLink'>
         {categories
           && categories.map((category) => (
             <li key={category.id}>
