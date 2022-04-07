@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 function NewsComponent({ news }) {
   const finalNews = news && news.map((item, idx) => ({ ...item, id: idx }));
+  console.log('finalNews', finalNews);
   if (news === undefined) {
     return (
       <>
@@ -53,14 +54,14 @@ NewsComponent.propTypes = {
   news: PropTypes.arrayOf(
     PropTypes.shape({
       urlToImage: PropTypes.string,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      publishedAt: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      description: PropTypes.string,
+      publishedAt: PropTypes.string,
+      url: PropTypes.string,
       source: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-      }).isRequired,
-    }).isRequired,
+        name: PropTypes.string,
+      }),
+    }),
   ),
 };
 
